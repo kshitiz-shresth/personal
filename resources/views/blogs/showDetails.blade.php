@@ -7,6 +7,9 @@
 	<meta name="title" content="{{ $blog->title }}">
 	<meta name="description" content="{{ $blog->meta_description }}">
 
+    <link rel=“canonical” href=“{{ route('showBlogDetails',$blog->slug) }}” />
+
+
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ route('showBlogDetails',$blog->slug) }}">
