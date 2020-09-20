@@ -18,3 +18,8 @@ sans-serif !important;
     border-radius: 11px;
 
 }
+
+.theme-btn-disabled {
+    background: #919191 !important;
+    pointer-events: none;
+}

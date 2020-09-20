@@ -116,7 +116,7 @@ html body .mdi-set {
   line-height: initial;
 }
 section{
-	padding:80px 0 80px;
+	padding:37px 0 69px;
 	position:relative;
 }
 p {
@@ -6162,9 +6162,12 @@ a.btn-br-more {
 /*------------- Page Title -------------*/
 .page-title {
     text-align: center;
+    background: #032656;
 }
 .page-title .breadcrumb-title {
     margin: 0;
+    color: #f0f1f5;
+
 }
 .page-title .breadcrumb {
     box-shadow: none;
@@ -6172,6 +6175,7 @@ a.btn-br-more {
     margin: 0 auto;
     width: auto;
     display: table;
+    background: 0;
 }
 .page_sidebar {
     position: relative;
@@ -6601,7 +6605,8 @@ span.mod-close {
 .single_widgets.widget_thumb_post ul li .left {
     display: block;
     float: left;
-    width: 80px;
+    width: 96px;
+    height: 64px;
 }
 .single_widgets.widget_thumb_post ul li .right {
     display: block;
@@ -6631,7 +6636,9 @@ span.mod-close {
 }
 .single_widgets.widget_thumb_post ul li .left img {
     width: 100%;
-	border-radius:3px;
+    border-radius: 3px;
+    height: 100%;
+    object-fit: cover;
 }
 .single_widgets.widget_tags ul {
     padding: 0;
@@ -7027,7 +7034,7 @@ p.description {
 .single_article_wrap .article_body_wrap p, .single_article_wrap .article_body_wrap .text {
     color: #6e7c90;
     font-size:16px;
-    margin: 35px 0 0;
+    margin: 12px 0 0;
 }
 .blog-page .article_detail_wrapss blockquote {
     background:#f7f9fc;

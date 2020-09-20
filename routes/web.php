@@ -16,6 +16,9 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
+// For Blog
+Route::get('/blogs', [PageController::class, 'showBlogs'])->name('showBlogs');
+Route::get('/blog/{slug}', [PageController::class, 'showBlogDetails'])->name('showBlogDetails');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

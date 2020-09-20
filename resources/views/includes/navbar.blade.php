@@ -1,10 +1,10 @@
 <!-- Start Navigation -->
-			<div class="header header-transparent change-logo">
+			<div class="header  change-logo">
 				<div class="container">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
-							<a class="nav-brand static-logo" href="#"><img src="assets/img/logo-light.png" class="logo" alt="" /></a>
-							<a class="nav-brand fixed-logo" href="#"><img src="assets/img/logo.png" class="logo" alt="" /></a>
+							<a class="nav-brand static-logo" href="#"><img src="/assets/img/logo.png" class="logo" alt="" /></a>
+							<a class="nav-brand fixed-logo" href="#"><img src="/assets/img/logo.png" class="logo" alt="" /></a>
 							<div class="nav-toggle"></div>
 						</div>
 						<div class="nav-menus-wrapper" style="transition-property: none;">
@@ -92,7 +92,7 @@
 								</li> --}}
 								
 								<li><a href="{{ route('home') }}">Home</a></li>
-								<li><a href="#">Blogs</a></li>
+								<li><a href="{{ route('showBlogs') }}">Blogs</a></li>
 								
 							</ul>
                             {{-- 							
