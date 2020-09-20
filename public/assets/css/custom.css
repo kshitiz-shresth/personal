@@ -23,3 +23,21 @@ sans-serif !important;
     background: #919191 !important;
     pointer-events: none;
 }
+
+figure.image {
+        display: flex;
+        flex-direction: column;
+        background: #eaeaea;
+        padding: 18px 3px 4px 5px;
+        align-items: center;
+}
+
+figure.image figcaption{
+    background: #0049da;
+    padding: 2px;
+    margin-top: 3px;
+    color: #eaeaea;
+    border-radius: 9px;
+    font-size: 10px;
+    font-style: italic;
+}

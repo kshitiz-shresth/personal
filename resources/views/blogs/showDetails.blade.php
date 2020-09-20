@@ -5,20 +5,20 @@
 @section('meta')
 	<!-- Primary Meta Tags -->
 	<meta name="title" content="{{ $blog->title }}">
-	<meta name="description" content="{{ $blog->meta_descrption }}">
+	<meta name="description" content="{{ $blog->meta_description }}">
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="{{ route('showBlogs') }}">
 	<meta property="og:title" content="{{ $blog->title }}">
-	<meta property="og:description" content="{{ $blog->meta_descrption }}">
+	<meta property="og:description" content="{{ $blog->meta_description }}">
 	<meta property="og:image" content="{{ Kshitiz::image($blog->image,'small') }}">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:url" content="{{ route('showBlogs') }}">
 	<meta property="twitter:title" content="{{ $blog->title }}">
-	<meta property="twitter:description" content="{{ $blog->meta_descrption }}">
+	<meta property="twitter:description" content="{{ $blog->meta_description }}">
 	<meta property="twitter:image" content="{{ Kshitiz::image($blog->image,'small') }}">
 
     <meta name="keywords" content="{{ $blog->meta_keywords }}">
