@@ -43,10 +43,3 @@ figure.image figcaption{
     font-size: 10px;
     font-style: italic;
 }
-
-.iframe {
-    display: flex;
-    justify-content: center;
-    background: #eaeaea;
-    padding: 20px;
-}
