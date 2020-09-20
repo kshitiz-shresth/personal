@@ -69,7 +69,7 @@
                             
                             <div class="article_top_info">
                                 <ul class="article_middle_info">
-                                    <li><span class="icons"><i class="ti-eye"></i></span>{{ $blog->view }}</li>
+                                    <li><span class="icons"><i class="ti-eye"></i></span>{{ $blog->views }}</li>
                                 </ul>
                             </div>
                             <h2 class="post-title">{{ $blog->title }}</h2>
@@ -84,7 +84,7 @@
 											</a>
 										</div>
 										<div class="article_pagination_center_grid">
-											<a href="#"><i class="ti-layout-grid3"></i></a>
+											<a href="{{ route('showBlogs') }}"><i class="ti-layout-grid3"></i></a>
 										</div>
 										<div class="next-post">
 											<a href="{{ $nextBlogSlug  ? route('showBlogDetails',$nextBlogSlug) : '#' }}" class="theme-bg {{ $nextBlogSlug ? '' : 'theme-btn-disabled' }}">
@@ -111,9 +111,7 @@
                                 {{-- <li><a href="#"><i class="fab fa-youtube"></i></a></li> --}}
                                 {{-- <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li> --}}
                             </ul>
-                            <p class="pa-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                            aliqua. Ut enim ad minim veniam, quis nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+                            <p class="pa-text">Hello! I’m Kshitiz Shrestha. Web Developer with over 2 years of experience. Experienced with all stages of the development cycle for dynamic web projects. Having an in-depth knowledge including advanced HTML5, CSS3, JavaScript, jQuery, Php, Laravel, Vue.js. I aim to make a difference through my creative solution.I started doing blogs on 2020.</p>
                         </div>
                         
                     </div>

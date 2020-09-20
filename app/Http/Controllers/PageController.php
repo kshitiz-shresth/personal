@@ -25,7 +25,7 @@ class PageController extends Controller
 
     public function showBlogDetails($slug){
         $blog = Blog::where('slug',$slug)->first();
-        $blog['views']++;
+        $blog['views'] = $blog['views']+1;
         $blog->save();
         $tags = explode(',',$blog->tags);
         $trendings = Blog::orderBy('views','desc')->get();
