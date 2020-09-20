@@ -25,12 +25,14 @@ class PageController extends Controller
 
     public function showBlogDetails($slug){
         $blog = Blog::where('slug',$slug)->first();
+        $blog['views']++;
+        $blog->save();
         $tags = explode(',',$blog->tags);
         $trendings = Blog::orderBy('views','desc')->get();
         $categories = Category::orderBy('order')->get();
         $nextBlog = Blog::where('id',$blog->id+1)->first();
         $nextBlogSlug = $nextBlog ? $nextBlog->slug : null;
-        $previousBlog = Blog::where('id', $blog->id + 1)->first();
+        $previousBlog = Blog::where('id', $blog->id - 1)->first();
         $previousBlogSlug = $previousBlog ? $previousBlog->slug : null;
         return view('blogs.showDetails', compact(
             'blog',
