@@ -31,7 +31,7 @@ figure.image {
         padding: 18px 92px 4px 92px;
         align-items: center;
 }
-figure.image image{
+figure.image img{
     width: 100%;
 }
 figure.image figcaption{
