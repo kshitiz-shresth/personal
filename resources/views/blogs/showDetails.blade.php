@@ -1,13 +1,21 @@
 
 @extends('layout.app')
 @section('title',$blog->title)
+@section('canonical')
+    <link rel=“canonical” href=“{{ route('showBlogDetails',$blog->slug) }}” />
+@endsection
+
+@section('header')
+    <header>
+        <time class="op-published" datetime="{{ $blog->created_at }}" />
+    </header>
+@endsection
 
 @section('meta')
 	<!-- Primary Meta Tags -->
 	<meta name="title" content="{{ $blog->title }}">
 	<meta name="description" content="{{ $blog->meta_description }}">
 
-    <link rel=“canonical” href=“{{ route('showBlogDetails',$blog->slug) }}” />
 
 
 	<!-- Open Graph / Facebook -->
