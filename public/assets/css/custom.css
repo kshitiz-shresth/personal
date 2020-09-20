@@ -1,0 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gotu&display=swap');
+
+.nepali, .nepali h1 {
+font-family: 'Gotu',
+sans-serif !important;
+
+}
+
+.nepali p{
+    font-size: 22px;
+}
+
+.kshitiz {
+    background: #d80b4e;
+    padding: 10px 9px 2px 4px;
+    font-size: 32px;
+    border-radius: 11px;
+
+}
