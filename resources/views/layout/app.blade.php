@@ -9,6 +9,8 @@
         <title>@yield('title')</title>
         
         @include('includes.css')
+
+        @yield('meta')
 		
     </head>
 	
@@ -32,7 +34,7 @@
 
             
               @yield('body')
-              
+
 
             @include('includes.footer')
             

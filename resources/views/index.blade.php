@@ -2,6 +2,26 @@
 
 @section('title','Kshitiz Shrestha')
 
+@section('meta')
+	<!-- Primary Meta Tags -->
+	<meta name="title" content="{{ setting('admin.meta_title') }}">
+	<meta name="description" content="{{ setting('admin.meta_description') }}">
+
+	<!-- Open Graph / Facebook -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://kshitizstha.com.np/">
+	<meta property="og:title" content="{{ setting('admin.meta_title') }}">
+	<meta property="og:description" content="{{ setting('admin.meta_description') }}">
+	<meta property="og:image" content="{{ Voyager::image(setting('admin.meta_image')) }}">
+
+	<!-- Twitter -->
+	<meta property="twitter:card" content="summary_large_image">
+	<meta property="twitter:url" content="https://kshitizstha.com.np">
+	<meta property="twitter:title" content="{{ setting('admin.meta_title') }}">
+	<meta property="twitter:description" content="{{ setting('admin.meta_description') }}">
+	<meta property="twitter:image" content="{{ Voyager::image(setting('admin.meta_image')) }}">
+
+@endsection
 
 @section('body')
             <div class="clearfix"></div>
