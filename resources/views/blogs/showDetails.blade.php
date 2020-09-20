@@ -9,14 +9,14 @@
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="{{ route('showBlogs') }}">
+	<meta property="og:url" content="{{ route('showBlogDetails',$blog->slug) }}">
 	<meta property="og:title" content="{{ $blog->title }}">
 	<meta property="og:description" content="{{ $blog->meta_description }}">
 	<meta property="og:image" content="{{ Kshitiz::image($blog->image,'small') }}">
 
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
-	<meta property="twitter:url" content="{{ route('showBlogs') }}">
+	<meta property="twitter:url" content="{{ route('showBlogDetails',$blog->slug) }}">
 	<meta property="twitter:title" content="{{ $blog->title }}">
 	<meta property="twitter:description" content="{{ $blog->meta_description }}">
 	<meta property="twitter:image" content="{{ Kshitiz::image($blog->image,'small') }}">
@@ -74,7 +74,18 @@
                             </div>
                             <h2 class="post-title">{{ $blog->title }}</h2>
                             {!! $blog->body !!}
-                            
+                            <div class="mt-3">
+                                <a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u={{ route('showBlogDetails',$blog->slug) }}&t={{ $blog->title }}"
+                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                target="_blank" title="Share on Facebook"><i class="ti-facebook"></i> Share on Facebook
+                                </a>
+                                <a  class="btn btn-primary" href="https://twitter.com/share?url={{ route('showBlogDetails',$blog->slug) }}&via=TWITTER_HANDLE&text=TEXT"
+                                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
+                                target="_blank" title="Share on Twitter"><i class="ti-twitter"></i> Share on Twitter
+                                </a>
+                            </div>
+                                
+
 									<div class="single_article_pagination">
 										<div class="prev-post">
 											<a href="{{ $previousBlogSlug  ? route('showBlogDetails',$previousBlogSlug) : '#' }}" class="theme-bg {{ $previousBlogSlug ? '' : 'theme-btn-disabled' }}">
