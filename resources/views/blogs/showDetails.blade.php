@@ -316,3 +316,10 @@
     <!-- ============================ Agency List End ================================== -->
 	
 @endsection
+
+
+@section('js')
+    <script>
+        $('iframe').wrap("<div class='iframe'></div>");
+    </script>
+@endsection
