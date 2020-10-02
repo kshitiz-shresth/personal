@@ -85,6 +85,17 @@
                             </div>
                             <h2 class="post-title">{{ $blog->title }}</h2>
                             {!! $blog->body !!}
+                            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- Long Ad -->
+                            <ins class="adsbygoogle"
+                                style="display:block"
+                                data-ad-client="ca-pub-9241957882099608"
+                                data-ad-slot="5484775753"
+                                data-ad-format="auto"
+                                data-full-width-responsive="true"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
                             <div class="mt-3">
                                 <a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u={{ route('showBlogDetails',$blog->slug) }}&t={{ $blog->title }}"
                                 onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
