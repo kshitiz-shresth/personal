@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	
-<head>
+    <head>
         @yield('canonical')
 		<meta charset="utf-8" />
 		<meta name="author" content="www.frebsite.nl" />
@@ -13,7 +13,7 @@
         @include('includes.css')
 
         @yield('meta')
-		
+		<script data-ad-client="ca-pub-9241957882099608" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
 	
     <body class="red-skin">
