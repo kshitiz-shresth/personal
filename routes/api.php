@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // validating users
-Route::get('/users',function(){
-    return 'done';
-});
+Route::post('/login',[UserController::class,'login']);
 
+Route::get('/employee',[EmployeeController::class,'getEmployee']);
+
+Route::post('/set-fingerint',[EmployeeController::class,'setFingerprint']);
 
 // getting employee
 
