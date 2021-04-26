@@ -14,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// validating users
+Route::get('/users',function(){
+    return 'done';
+});
+
+
+// getting employee
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
