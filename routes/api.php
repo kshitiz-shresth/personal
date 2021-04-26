@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // validating users
-Route::get('/login',[UserController::class,'login']);
+Route::post('/login',[UserController::class,'login']);
 Route::post('/logout',[UserController::class,'logout']);
 
 Route::get('/employee',[EmployeeController::class,'getEmployee']);

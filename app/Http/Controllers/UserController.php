@@ -16,14 +16,24 @@ class UserController extends Controller
             $email = $request->email;
             $password = $request->password;
             $user = User::where('email', $email)->first();
-            if (Hash::check($password, $user->password)) {
-                return response([
-                    'status' => 200,
-                    'type' => 'success',
-                    'message' => 'Successfully Validated',
-                    'data' => compact('user')
-                ]);
+            if($user){
+                if (Hash::check($password, $user->password)) {
+                    return response([
+                        'status' => 200,
+                        'type' => 'success',
+                        'message' => 'Successfully Validated',
+                        'data' => compact('user')
+                    ]);
+                }
+                else{
+                    return response([
+                        'status' => 401,
+                        'type' => 'error',
+                        'message' => 'User not Validated'
+                    ]); 
+                }
             }
+            
             return response([
                 'status' => 401,
                 'type' => 'error',
