@@ -21,7 +21,7 @@ class UserController extends Controller
                     'status' => 200,
                     'type' => 'success',
                     'message' => 'Successfully Validated',
-                    'data' => compact('employee')
+                    'data' => compact('user')
                 ]);
             }
             return response([
