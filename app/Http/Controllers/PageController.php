@@ -17,7 +17,7 @@ class PageController extends Controller
             $category_id = Category::where('slug',$request->category)->first()->id;
             $blogs = Blog::where('category_id',$category_id)->orderBy('created_at', 'desc')->get();
         }
-        elseif($request->tags){
+        elseif($request->tag){
             $blogs = Blog::where('tag','LIKE',"%{$request->tag}%")->orderBy('created_at', 'desc')->get();
         }
         else{
