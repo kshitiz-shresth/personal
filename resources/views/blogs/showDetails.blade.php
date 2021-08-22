@@ -34,6 +34,11 @@
 
     <meta name="keywords" content="{{ $blog->meta_keywords }}">
     <meta name="author" content="Kshitiz Shrestha">
+    <style>
+        .article_body_wrap>ul{
+            list-style: inside;
+        }
+    </style>
 @endsection
 
 
