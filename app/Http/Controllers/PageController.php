@@ -21,7 +21,7 @@ class PageController extends Controller
             $blogs = Blog::where('tag','LIKE',"%{$request->tag}%")->orderBy('created_at', 'desc')->get();
         }
         else{
-        $blogs = Blog::orderBy('created_at','desc')->get();
+            $blogs = Blog::orderBy('created_at','desc')->get();
         }
         return view('blogs.show',compact(
             'blogs'
