@@ -319,7 +319,7 @@
                         <h4 class="title">Tags Cloud</h4>
                         <ul>
                             @foreach ($tags as $item)
-                                <li><a href="/blogs?tags={{ $item }}">{{ $item }}</a></li>
+                                <li><a href="/blogs?tag={{ $item }}">{{ $item }}</a></li>
                             @endforeach
                         </ul>
                     </div>

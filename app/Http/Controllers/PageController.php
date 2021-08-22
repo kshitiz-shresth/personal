@@ -13,10 +13,15 @@ class PageController extends Controller
     }
 
     public function showBlogs(Request $request){
-        $blogs = Blog::orderBy('created_at','desc')->get();
         if($request->category){
             $category_id = Category::where('slug',$request->category)->first()->id;
             $blogs = Blog::where('category_id',$category_id)->orderBy('created_at', 'desc')->get();
+        }
+        elseif($request->tags){
+            $blogs = Blog::where('tag','LIKE',"%{$request->tag}%")->orderBy('created_at', 'desc')->get();
+        }
+        else{
+        $blogs = Blog::orderBy('created_at','desc')->get();
         }
         return view('blogs.show',compact(
             'blogs'
@@ -28,7 +33,7 @@ class PageController extends Controller
         $blog['views'] = $blog['views']+1;
         $blog->save();
         $tags = explode(',',$blog->tags);
-        $trendings = Blog::orderBy('views','desc')->get();
+        $trendings = Blog::orderBy('views','desc')->take(4)->get();
         $categories = Category::orderBy('order')->get();
         $nextBlog = Blog::where('id',$blog->id+1)->first();
         $nextBlogSlug = $nextBlog ? $nextBlog->slug : null;
