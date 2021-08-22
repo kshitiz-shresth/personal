@@ -339,6 +339,7 @@
 
 @section('js')
     <script>
+        $('article_body_wrap>p>img').addClass('img-fluid');
         $('iframe').addClass('embed-responsive-item');
         $('iframe').wrap("<div class='embed-responsive embed-responsive-16by9'></div>");
     </script>
