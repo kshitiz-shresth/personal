@@ -15,6 +15,7 @@
 	<!-- Primary Meta Tags -->
 	<meta name="title" content="{{ $blog->title }}">
 	<meta name="description" content="{{ $blog->meta_description }}">
+    <meta name="keywords" content="{{$blog->tags}}">
 
 
 
@@ -43,13 +44,13 @@
 
 
 @section('body')
-{{-- 			
+{{--
     <!-- ============================ Page Title Start================================== -->
     <section class="page-title">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    
+
                     <div class="breadcrumbs-wrap pt-2 pt-lg-5">
                         <h1 class="breadcrumb-title">Blogs</h1>
                         <nav aria-label="breadcrumb">
@@ -59,30 +60,30 @@
                             </ol>
                         </nav>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </section>
-    <!-- ============================ Page Title End ================================== -->	
+    <!-- ============================ Page Title End ================================== -->
      --}}
     <!-- ============================ Agency List Start ================================== -->
     <section class="gray">
-    
+
         <div class="container">
-        
+
             <!-- row Start -->
             <div class="row">
-            
+
                 <!-- Blog Detail -->
                 <div class="col-lg-8 col-md-12 col-sm-12 col-12">
                     <div class="article_detail_wrapss single_article_wrap format-standard">
                         <div class="article_body_wrap">
-                        
+
                             <div class="article_featured_image">
                                 <img class="img-fluid" src="{{ Kshitiz::image($blog->image) }}" alt="">
                             </div>
-                            
+
                             <div class="article_top_info">
                                 <ul class="article_middle_info">
                                     <li><span class="icons"><i class="ti-eye"></i></span>{{ $blog->views }}</li>
@@ -90,14 +91,14 @@
                             </div>
                             <h2 class="post-title">{{ $blog->title }}</h2>
                             {!! $blog->body !!}
-                           
+
                             <div class="mt-3">
                                 <a class="btn btn-primary" href="https://www.facebook.com/sharer/sharer.php?u={{ route('showBlogDetails',$blog->slug) }}&t={{ $blog->title }}"
                                 onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;"
                                 target="_blank" title="Share on Facebook"><i class="ti-facebook"></i> Share on Facebook
                                 </a>
                             </div>
-                                
+
 
 									<div class="single_article_pagination">
 										<div class="prev-post">
@@ -118,13 +119,13 @@
 											</a>
 										</div>
 									</div>
-                            
+
                         </div>
                     </div>
-                    
+
                     <!-- Author Detail -->
                     <div class="article_detail_wrapss single_article_wrap format-standard">
-                        
+
                         <div class="article_posts_thumb">
                             <span class="img"><img class="img-fluid" src="{{ Kshitiz::image(setting('site.author_image')) }}" alt="Kshitiz Shrestha"></span>
                             <h3 class="pa-name">Kshitiz Shrestha</h3>
@@ -137,12 +138,12 @@
                             </ul>
                             <p class="pa-text">Hello! I’m Kshitiz Shrestha. Web Developer with over 2 years of experience. Experienced with all stages of the development cycle for dynamic web projects. Having an in-depth knowledge including advanced HTML5, CSS3, JavaScript, jQuery, Php, Laravel, Vue.js. I aim to make a difference through my creative solution.I started doing blogs on 2020.</p>
                         </div>
-                        
+
                     </div>
-                    {{--                     
+                    {{--
                     <!-- Blog Comment -->
                     <div class="article_detail_wrapss single_article_wrap format-standard">
-                        
+
                         <div class="comment-area">
                             <div class="all-comments">
                                 <h3 class="comments-title">05 Comments</h3>
@@ -273,15 +274,15 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div> --}}
-                    
-                    
+
+
                 </div>
-                
+
                 <!-- Single blog Grid -->
                 <div class="col-lg-4 col-md-12 col-sm-12 col-12">
-                    
+
                     <!-- Searchbard -->
                     <div class="single_widgets widget_search">
                         <h4 class="title">Search</h4>
@@ -300,7 +301,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    
+
                     <!-- Trending Posts -->
                     <div class="single_widgets widget_thumb_post">
                         <h4 class="title">Trending Posts</h4>
@@ -311,14 +312,14 @@
                                         <img src="{{ Kshitiz::image($item->image,'small') }}" alt="" class="">
                                     </span>
                                     <span class="right">
-                                        <a class="feed-title" href="{{ route('showBlogDetails',$item->slug) }}">{{ $item->title }}</a> 
+                                        <a class="feed-title" href="{{ route('showBlogDetails',$item->slug) }}">{{ $item->title }}</a>
                                         <span class="post-date"><i class="ti-calendar"></i>{{ $item->created_at->diffForHumans() }}</span>
                                     </span>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
-                    
+
                     <!-- Tags Cloud -->
                     <div class="single_widgets widget_tags">
                         <h4 class="title">Tags Cloud</h4>
@@ -328,17 +329,17 @@
                             @endforeach
                         </ul>
                     </div>
-                    
+
                 </div>
-                
+
             </div>
-            <!-- /row -->					
-            
+            <!-- /row -->
+
         </div>
-                
+
     </section>
     <!-- ============================ Agency List End ================================== -->
-	
+
 @endsection
 
 

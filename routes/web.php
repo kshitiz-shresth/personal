@@ -16,6 +16,9 @@ use App\Http\Controllers\PageController;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 
+//Get today's date
+Route::get('/today-nepali-date',[PageController::class,'getTodayNepaliDate'])->name('todayNepaliDate');
+
 // For Blog
 Route::get('/blogs', [PageController::class, 'showBlogs'])->name('showBlogs');
 Route::get('/blog/{slug}', [PageController::class, 'showBlogDetails'])->name('showBlogDetails');

@@ -227,6 +227,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Kshitiz' => \App\Kshitiz::class,
+        'TodayDate' => \App\Widgets\TodayDate::class,
 
     ],
 

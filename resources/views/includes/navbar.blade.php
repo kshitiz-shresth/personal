@@ -9,7 +9,7 @@
 						</div>
 						<div class="nav-menus-wrapper" style="transition-property: none;">
 							<ul class="nav-menu">
-{{-- 							
+{{--
 								<li class="active"><a href="#">Home<span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
 										<li><a href="index.html">Home 1</a></li>
@@ -22,7 +22,7 @@
 										<li><a href="home-8.html">Home 8</a></li>
 									</ul>
 								</li>
-								
+
 								<li><a href="#">Courses<span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
 										<li><a href="#">Courses Grid Sidebar<span class="submenu-indicator"></span></a>
@@ -53,7 +53,7 @@
 										<li><a href="instructor-detail.html">Instructor Detail</a></li>
 									</ul>
 								</li>
-								
+
 								<li><a href="#">Pages<span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
 										<li class=""><a href="#">User Dashboard<span class="submenu-indicator"></span></a>
@@ -90,14 +90,15 @@
 										<li><a href="faq.html">FAQs</a></li>
 									</ul>
 								</li> --}}
-								
+
 								<li><a href="{{ route('home') }}">Home</a></li>
 								<li><a href="{{ route('showBlogs') }}">Blogs</a></li>
-								
+								<li><a href="{{ route('todayNepaliDate') }}">Today's Nepali Date</a></li>
+
 							</ul>
-                            {{-- 							
+                            {{--
 							<ul class="nav-menu nav-menu-social align-to-right">
-								
+
 								<li class="login_click light">
 									<a href="#" data-toggle="modal" data-target="#login">Sign in</a>
 								</li>

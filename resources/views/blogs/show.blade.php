@@ -25,13 +25,13 @@
 
 
 @section('body')
-			
+
     <!-- ============================ Page Title Start================================== -->
     <section class="page-title">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">
-                    
+
                     <div class="breadcrumbs-wrap">
                         <h1 class="breadcrumb-title">Blogs</h1>
                         <nav aria-label="breadcrumb">
@@ -41,17 +41,17 @@
                             </ol>
                         </nav>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
     </section>
-    <!-- ============================ Page Title End ================================== -->	
-    
+    <!-- ============================ Page Title End ================================== -->
+
     <!-- ========================== Articles Section =============================== -->
     <section class="pt-5">
         <div class="container">
-            
+
             <div class="row">
                 @foreach ($blogs as $item)
                 <!-- Single Article -->
@@ -60,7 +60,7 @@
                         <div class="articles_grid_thumb">
                             <a href="{{ route('showBlogDetails',$item->slug) }}"><img src="{{ Kshitiz::image($item->image,'cropped') }}" class="img-fluid" alt="" /></a>
                         </div>
-                        
+
                         <div class="articles_grid_caption">
                             <h4>{{ $item->title }}</h4>
                             <div class="articles_grid_author">
@@ -69,13 +69,14 @@
                         </div>
                     </div>
                 </div>
-                    
+
                 @endforeach
-                
+
+        </div>
         </div>
     </section>
     <!-- ========================== Articles Section =============================== -->
-    {{--     
+    {{--
     <!-- ============================== Start Newsletter ================================== -->
     <section class="newsletter theme-bg inverse-theme">
         <div class="container">

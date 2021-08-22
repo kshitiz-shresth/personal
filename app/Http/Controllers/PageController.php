@@ -12,6 +12,10 @@ class PageController extends Controller
         return view('index');
     }
 
+    public function getTodayNepaliDate(){
+        return view('projects.today-nepali-date');
+    }
+
     public function showBlogs(Request $request){
         if($request->category){
             $category_id = Category::where('slug',$request->category)->first()->id;
