@@ -73,7 +73,7 @@
             <div class="card">
                 <div class="card-body row">
                     <div class="col">
-                        <h5 class="text-dark">{{$title}}</h5>
+                        <h3 class="text-dark" style="font-family:serif;">{{$title}}</h3>
                         <small>Source: Hamropatro</small>
                     </div>
                 </div>
