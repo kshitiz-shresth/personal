@@ -14,7 +14,8 @@ class PageController extends Controller
     private $init = 0;
 
     public function index(){
-
+//        $client = new Client();
+//        $url = 'https://nepalipatro.com.np/rashifal';
         return view('index');
     }
 
@@ -49,7 +50,8 @@ class PageController extends Controller
                 $this->rashifal[$index]['image']=$url.$item->filter('img')->attr('src');
             });
             $rashifal = $this->rashifal;
-            return view('projects.rashifal',compact('rashifal'));
+            $title = $hamropatro->filter('.articleTitleNew')->text();
+            return view('projects.rashifal',compact('rashifal','title'));
         }
         catch (\Exception $e){
             abort('404');

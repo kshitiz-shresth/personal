@@ -70,7 +70,14 @@
     </section>
     <section class="gray">
         <div class="container">
-
+            <div class="card">
+                <div class="card-body row">
+                    <div class="col">
+                        <h5 class="text-dark">{{$title}}</h5>
+                        <small>Source: Hamropatro</small>
+                    </div>
+                </div>
+            </div>
             <!-- row Start -->
             <div class="row">
                 @foreach($rashifal as $item)
