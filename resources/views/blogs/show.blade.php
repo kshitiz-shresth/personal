@@ -27,7 +27,7 @@
 @section('body')
 
     <!-- ============================ Page Title Start================================== -->
-    <section class="page-title">
+    <section class="page-title pb-4 pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">

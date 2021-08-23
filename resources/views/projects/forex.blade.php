@@ -49,7 +49,7 @@
 
 
 @section('body')
-    <section class="page-title">
+    <section class="page-title pb-3 pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12">

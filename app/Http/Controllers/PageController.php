@@ -14,8 +14,6 @@ class PageController extends Controller
     private $init = 0;
 
     public function index(){
-//        $client = new Client();
-//        $url = 'https://nepalipatro.com.np/rashifal';
         return view('index');
     }
 
