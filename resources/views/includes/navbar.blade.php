@@ -94,6 +94,8 @@
 								<li><a href="{{ route('home') }}">Home</a></li>
 								<li><a href="{{ route('showBlogs') }}">Blogs</a></li>
 								<li><a href="{{ route('todayNepaliDate') }}">Today's Nepali Date</a></li>
+								<li><a href="{{ route('rashifal') }}">Rashifal</a></li>
+								<li><a href="{{ route('forex') }}">Forex</a></li>
 
 							</ul>
                             {{--

@@ -10,22 +10,51 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
     private $rashifal  = array();
+    private $forex  = array();
+    private $init = 0;
 
     public function index(){
+
         return view('index');
     }
 
+    public function getForex(){
+        try{
+            $client = new Client();
+            $url = 'https://www.hamropatro.com/';
+            $hamropatro = $client->request('GET',$url);
+            $hamropatro->filter('ul.currency')->first()->children()->each(function($item,$index){
+                if($index>2){
+                    $this->forex[$this->init][]=$item->filter('li')->text();
+                }
+                if(($index+1)%3==0){
+                    $this->init = $this->init+1;
+                }
+            });
+            $forex = collect($this->forex)->values();
+            return view('projects.forex',compact('forex'));
+        }
+        catch (\Exception $e){
+            abort('404');
+        }
+    }
     public function getRashifal(){
-        $client = new Client();
-        $url = 'https://www.hamropatro.com/';
-        $hamropatro = $client->request('GET',"{$url}rashifal");
-        $hamropatro->filter('#rashifal .item')->each(function($item,$index) use ($url){
-            $this->rashifal[$index]['title']=$item->filter('h3')->text();
-            $this->rashifal[$index]['description']=$item->filter('.desc')->text();
-            $this->rashifal[$index]['image']=$url.$item->filter('img')->attr('src');
-        });
-        $rashifal = $this->rashifal;
-        return view('projects.rashifal',compact('rashifal'));
+        try{
+            $client = new Client();
+            $url = 'https://www.hamropatro.com/';
+            $hamropatro = $client->request('GET',"{$url}rashifal");
+            $hamropatro->filter('#rashifal .item')->each(function($item,$index) use ($url){
+                $this->rashifal[$index]['title']=$item->filter('h3')->text();
+                $this->rashifal[$index]['description']=$item->filter('.desc')->text();
+                $this->rashifal[$index]['image']=$url.$item->filter('img')->attr('src');
+            });
+            $rashifal = $this->rashifal;
+            return view('projects.rashifal',compact('rashifal'));
+        }
+        catch (\Exception $e){
+            abort('404');
+        }
+
     }
 
     public function getTodayNepaliDate(){

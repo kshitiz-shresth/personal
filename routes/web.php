@@ -19,6 +19,7 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 //Get today's date
 Route::get('/today-nepali-date',[PageController::class,'getTodayNepaliDate'])->name('todayNepaliDate');
 Route::get('/rashifal',[PageController::class,'getRashifal'])->name('rashifal');
+Route::get('/forex',[PageController::class,'getForex'])->name('forex');
 // For Blog
 Route::get('/blogs', [PageController::class, 'showBlogs'])->name('showBlogs');
 Route::get('/blog/{slug}', [PageController::class, 'showBlogDetails'])->name('showBlogDetails');
