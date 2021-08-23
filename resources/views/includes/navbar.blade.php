@@ -90,12 +90,12 @@
 										<li><a href="faq.html">FAQs</a></li>
 									</ul>
 								</li> --}}
-
-								<li><a href="{{ route('home') }}">Home</a></li>
-								<li><a href="{{ route('showBlogs') }}">Blogs</a></li>
-								<li><a href="{{ route('todayNepaliDate') }}">Today's Nepali Date</a></li>
-								<li><a href="{{ route('rashifal') }}">Rashifal</a></li>
-								<li><a href="{{ route('forex') }}">Forex</a></li>
+                                @php $segment = Request::segment(1); @endphp
+								<li class="{{ $segment == '/' ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
+								<li class="{{ $segment == 'blogs' || $segment == 'blog' ? 'active' : '' }}"><a href="{{ route('showBlogs') }}">Blogs</a></li>
+								<li class="{{ $segment == 'today-nepali-date' ? 'active' : '' }}"><a href="{{ route('todayNepaliDate') }}">Today's Nepali Date</a></li>
+								<li class="{{ $segment == 'rashifal' ? 'active' : '' }}"><a href="{{ route('rashifal') }}">Rashifal</a></li>
+								<li class="{{ $segment == 'forex' ? 'active' : '' }}"><a href="{{ route('forex') }}">Forex</a></li>
 
 							</ul>
                             {{--
