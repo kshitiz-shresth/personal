@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Category;
+use App\Models\Rashifal;
+use App\Widgets\TodayDate;
 use Goutte\Client;
 use Illuminate\Http\Request;
 
@@ -39,16 +41,29 @@ class PageController extends Controller
     }
     public function getRashifal(){
         try{
-            $client = new Client();
-            $url = 'https://www.hamropatro.com/';
-            $hamropatro = $client->request('GET',"{$url}rashifal");
-            $hamropatro->filter('#rashifal .item')->each(function($item,$index) use ($url){
-                $this->rashifal[$index]['title']=$item->filter('h3')->text();
-                $this->rashifal[$index]['description']=$item->filter('.desc')->text();
-                $this->rashifal[$index]['image']=$url.$item->filter('img')->attr('src');
-            });
-            $rashifal = $this->rashifal;
-            $title = $hamropatro->filter('.articleTitleNew')->text();
+            $todayDate = TodayDate::nepali();
+            $todaysRashifal = Rashifal::where('today_nepali_date',$todayDate)->first();
+            if($todaysRashifal){
+               $rashifal = json_decode($todaysRashifal->rashifal,true);
+               $title = $todaysRashifal->title;
+            }
+            else{
+                $client = new Client();
+                $url = 'https://www.hamropatro.com/';
+                $hamropatro = $client->request('GET',"{$url}rashifal");
+                $hamropatro->filter('#rashifal .item')->each(function($item,$index) use ($url){
+                    $this->rashifal[$index]['title']=$item->filter('h3')->text();
+                    $this->rashifal[$index]['description']=$item->filter('.desc')->text();
+                    $this->rashifal[$index]['image']=$url.$item->filter('img')->attr('src');
+                });
+                $rashifal = $this->rashifal;
+                $title = $hamropatro->filter('.articleTitleNew')->text();
+                Rashifal::create([
+                    'rashifal' => json_encode($rashifal),
+                    'title' => $title,
+                    'today_nepali_date' => $todayDate
+                ]);
+            }
             return view('projects.rashifal',compact('rashifal','title'));
         }
         catch (\Exception $e){
