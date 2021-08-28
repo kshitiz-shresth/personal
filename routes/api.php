@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,12 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // validating users
-Route::post('/login',[UserController::class,'login']);
-Route::post('/logout',[UserController::class,'logout']);
-
-Route::get('/employee',[EmployeeController::class,'getEmployee']);
-
-Route::post('/set-fingerint',[EmployeeController::class,'setFingerprint']);
+Route::get('rashifal',[PageController::class,'rashifalAPI']);
 
 // getting employee
 
