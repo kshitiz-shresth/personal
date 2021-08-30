@@ -65,7 +65,7 @@ class PageController extends Controller
                         'today_nepali_date' => $todayDate
                     ]);
                 }else{
-                    $todaysRashifal = Rashifal::orderBy('created_at','desc')->first()->rashifal;
+                    $todaysRashifal = Rashifal::orderBy('created_at','desc')->first();
                     $rashifal = json_decode($todaysRashifal->rashifal,true);
                     $title = $todaysRashifal->title;
                 }
