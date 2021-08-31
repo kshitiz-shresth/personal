@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\RashifalCron::class
+        Commands\RashifalCron::class,
+        Commands\DailyRashifalMail::class,
     ];
 
     /**
@@ -25,6 +26,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('rashifal:cron')->everyMinute();
+        $schedule->command('dailyrashifal:cron')->everyMinute();
     }
 
     /**

@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Category;
 use App\Models\Rashifal;
+use App\Models\Subscription;
 use App\Widgets\TodayDate;
 use Goutte\Client;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
+use Mail;
 class PageController extends Controller
 {
     private $rashifal  = array();
@@ -19,6 +21,41 @@ class PageController extends Controller
         return view('index');
     }
 
+    public function subscribe(Request $request){
+        $request->validate([
+            'email'=>'required | email'
+        ]);
+        $email = $request->email;
+        $new = Subscription::where('email',$email)->first();
+        if($new){
+            $new->rashifal_id  =$request->rashifal_id;
+            $new->update();
+        }else{
+            $new = new Subscription();
+            $new->email = $email;
+            $new->rashifal_id = $request->rashifal_id;
+            $new->save();
+        }
+        $data =  array(
+            'email'=>$email,
+            'rashifal' => json_decode(Rashifal::first()->rashifal,true)[$request->rashifal_id],
+            'user'=>$new
+        );
+        Mail::send('email', $data , function($message) use ($data)
+        {
+            $message->from('mailkumar19373@gmail.com','राशिफल - क्षितिज वेबसाइट');
+            $message->to($data['email'], $data['rashifal']['title'])->subject('सदस्यताको लागि धन्यवाद');
+        });
+        Session::flash('success','Successfully Subscribed');
+        return redirect()->back();
+    }
+    public function unsubscribe($id){
+        if(Subscription::find(decrypt($id))){
+            Subscription::find(decrypt($id))->delete();
+            return 'Successfully Unsubscribed';
+        }
+        return 'Already un-Subscribed';
+    }
     public function getForex(){
         try{
             $client = new Client();

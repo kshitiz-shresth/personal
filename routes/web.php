@@ -17,6 +17,8 @@ use App\Http\Controllers\PageController;
 Route::get('/', [PageController::class, 'index'])->name('home');
 
 //Get today's date
+Route::post('subscribe',[PageController::class,'subscribe'])->name('subscribe');
+Route::get('unsubscribe/{id}',[PageController::class,'unsubscribe'])->name('unsubscribe');
 Route::get('/today-nepali-date',[PageController::class,'getTodayNepaliDate'])->name('todayNepaliDate');
 Route::get('/rashifal',[PageController::class,'getRashifal'])->name('rashifal');
 Route::get('/forex',[PageController::class,'getForex'])->name('forex');

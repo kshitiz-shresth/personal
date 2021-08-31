@@ -70,6 +70,12 @@
     </section>
     <section class="gray">
         <div class="container">
+            @if(session('success'))
+            <div class="alert alert-success">{{session('success')}}</div>
+            @endif
+            @foreach($errors->all() as $error)
+                    <div class="alert alert-danger">{{$error}}</div>
+            @endforeach
             <div class="card">
                 <div class="card-body row">
                     <div class="col">
@@ -80,7 +86,7 @@
             </div>
             <!-- row Start -->
             <div class="row">
-                @foreach($rashifal as $item)
+                @foreach($rashifal as $key=>$item)
                     <div class="col-lg-4 col-md-4 col-sm-12">
                         <div class="card">
                             <div class="card-header d-flex align-items-center justify-content-between">
@@ -90,6 +96,17 @@
                             <div class="card-body">
                                 <p>{{$item['description']}}</p>
                             </div>
+                            <form method="POST" class="card-footer" id="form{{$key}}" action="/subscribe">
+                                <div class="input-group">
+                                        @csrf
+                                        <input type="email"  class="form-control" name="email" placeholder="Email Address" aria-label="Enter Email" aria-describedby="basic-addon2">
+                                    <input type="hidden" name="rashifal_id" value="{{$key}}">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" onclick="submitForm({{$key}})" type="button">Subscribe</button>
+                                        </div>
+                                </div>
+                            </form>
+
                         </div>
                     </div>
                 @endforeach
@@ -106,6 +123,9 @@
 
 @section('js')
     <script>
+        function submitForm(key){
+            $(`#form${key}`).submit();
+        }
         $('.article_body_wrap>p>img').addClass('img-fluid');
         $('iframe').addClass('embed-responsive-item');
         $('iframe').wrap("<div class='embed-responsive embed-responsive-16by9'></div>");
