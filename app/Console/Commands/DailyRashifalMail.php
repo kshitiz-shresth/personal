@@ -40,7 +40,7 @@ class DailyRashifalMail extends Command
     public function handle()
     {
         $subscriptions = Subscription::all();
-        $latestRashifal = Rashifal::first();
+        $latestRashifal = Rashifal::orderBy('id','desc')->first();
         foreach ($subscriptions as $subscription){
             $data =  array(
                 'email'=>$subscription->email,

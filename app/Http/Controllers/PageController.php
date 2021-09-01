@@ -38,7 +38,7 @@ class PageController extends Controller
         }
         $data =  array(
             'email'=>$email,
-            'rashifal' => json_decode(Rashifal::first()->rashifal,true)[$request->rashifal_id],
+            'rashifal' => json_decode(Rashifal::orderBy('id','desc')->first()->rashifal,true)[$request->rashifal_id],
             'user'=>$new
         );
         Mail::send('email', $data , function($message) use ($data)
@@ -46,7 +46,7 @@ class PageController extends Controller
             $message->from('mailkumar19373@gmail.com','राशिफल - क्षितिज वेबसाइट');
             $message->to($data['email'], $data['rashifal']['title'])->subject('सदस्यताको लागि धन्यवाद');
         });
-        Session::flash('success','Successfully Subscribed');
+        Session::flash('success',"सदस्यताको लागि धन्यवाद, तपाईको यो {$data['email']} मा हामी दैनिक {$data['rashifal']['title']} राशिफल पठाउनेछौँ।");
         return redirect()->back();
     }
     public function unsubscribe($id){
